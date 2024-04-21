@@ -79,13 +79,13 @@ finally:
     # Close the browser window
     driver.quit()
 
-    # # Convert screenshots to PDF
-    # for i in range(1, 164):  # Include all screenshots from 1 to 163
-    #     image_path = f"{screenshot_directory}/screenshot_{i}.png"
-    #     if os.path.exists(image_path):
-    #         cover = Image.open(image_path)
-    #         width, height = cover.size
-    #         pdf.add_page()
-    #         pdf.image(image_path, 0, 0, 210, 297 * height / width)  # Resize image to fit A4
+    # Convert screenshots to PDF
+    for i in range(1, 164):  # Include all screenshots from 1 to 163
+        image_path = f"{screenshot_directory}/screenshot_{i}.png"
+        if os.path.exists(image_path):
+            cover = Image.open(image_path)
+            width, height = cover.size
+            pdf.add_page()
+            pdf.image(image_path, 0, 0, 210, 297 * height / width)  # Resize image to fit A4
 
-    # pdf.output("Questions_and_Answers.pdf", "F")
+    pdf.output("Questions_and_Answers.pdf", "F")
